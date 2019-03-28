@@ -42,8 +42,11 @@ class Interval {
      * @param {Interval} interval
      * @returns {boolean}
      */
-    includes(interval) {
 
+
+    includes(interval)
+    {
+        return this.start < interval.start && this.end > interval.end;
     };
 
     /**
@@ -62,9 +65,35 @@ class Interval {
      * @param {Interval} interval
      * @returns {Interval[]}
      */
-    union(interval) {
-
-    };
+	union(interval)
+	{
+		var tab = [this.end,this.start];
+		var t1 = true;
+		var t2 = true;
+		for (var i = 0; i < tab.length; i++)
+		{
+			if(tab[i]=== interval.start)
+			{
+				t1=false
+			} 
+		}
+		if(t1!==false)
+		{
+			tab.push(interval.start)
+		}
+		for (var i = 0; i < tab.length; i++)
+		{
+			if(tab[i]=== interval.end)
+			{
+				t2=false
+			} 
+		}
+		if(t2!==false)
+		{
+			tab.push(interval.end)
+		}
+		return tab.sort(function(a,b){return a-b});
+	};
 
     /**
      * Retourne l'intersection de deux intervals
