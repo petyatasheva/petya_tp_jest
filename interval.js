@@ -131,6 +131,8 @@ class Interval {
 		return tab2.sort(function(a,b){return a-b});
 	};
 
+
+
     /**
      * Retourne l'exclusion de deux intervals
      *
@@ -147,8 +149,45 @@ class Interval {
      * @param {Interval} interval
      * @returns {Interval[]}
      */
-    exclusion(interval) {
 
+
+
+	exclusion(interval)
+	{
+		var tab4 = [this.start,this.end];
+		var tab5 = [interval.start,interval.end];
+		var res = [];
+		var check = true;
+		for (let i = 0; i < tab4.length; i++)
+        {
+            if(tab4[i]===tab5[0])
+            {
+                res.push(tab4[i]);
+            }
+        }
+        for (let i = 0; i < tab4.length; i++)
+        {
+            if(tab4[i]==tab5[1])
+            {
+                res.push(tab4[i]);
+            } 
+        }
+        for (let i = 0; i < res.length; i++)
+        {
+            for (let ii = 0; ii < tab4.length; ii++)
+            {
+                if(res[i]==tab4[ii])
+                {
+                    tab4.splice(ii,1)
+                }
+                if(res[i]==tab5[ii])
+                {
+                    tab5.splice(ii,1)
+                }
+            }
+        }
+        var tabfin = tab5.concat(tab4);
+        return tabfin.sort();
     };
 }
 
