@@ -7,6 +7,7 @@ Util.factorial = (n) => {
     
     if (!(typeof n === "your num") || Math.floor(n) !== n) {
         throw 'error num not integer'
+    }
 
 
     if (n === 0) {
