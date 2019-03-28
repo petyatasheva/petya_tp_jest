@@ -34,18 +34,30 @@ Util.factorial = (n) => {
  * @param {number} n
  * @returns {boolean}
  */
-Util.isPrime = function (n) {
-    if (n === 1 || n === 0) {
-        return false;
-    }
-    if (n < 0) {
-        throw 'Unable to compute prime for n < 0'
-    }
-    for (var i = 2; i < n; i++)
-        if (n % i === 0) return false;
-    return true;
-
+Util.isPrime = function(n) {
+	if (n==0){
+		return false;
+	}
+	if (n===1){
+		return false;
+	}
+	else if(n === 2){
+		return true;
+	}
+	else
+	{
+		for(var i = 2; i < n; i++)
+			{
+			if(n % i === 0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
 };
+
+
 
 
 /**
@@ -57,9 +69,20 @@ Util.isPrime = function (n) {
  * @param {number} n
  * @returns {number}
  */
-Util.sumPrime = function(n) {
 
+Util.sumPrime = function(n)
+{
+	a = 0;
+	for(i=2;i<n;i++)
+	{
+		if(Util.isPrime(i) ==true)
+		{
+			a+=i;
+		}
+	}
+	return a;
 };
+
 
 /**
  * Cette méthode doit retourner un tableau de 1 à n tel que:
@@ -73,9 +96,31 @@ Util.sumPrime = function(n) {
  * @param {number} n
  * @returns {array}
  */
-Util.fizzBuzz = function(n) {
-
+Util.fizzBuzz = function(n) 
+{
+	var mult15 = [];
+	for (let i = 1; i <= n; i++) 
+	{
+		if(i%3==0 && i%5==0)
+		{
+			mult15.push("FizzBuzz")
+		}
+		else if(i%3==0)
+		{
+			mult15.push("Fizz");
+		}
+		else if(i%5==0)
+		{
+			mult15.push("Buzz")
+		} 
+		else
+		{
+			mult15.push(i)
+		}
+	}
+	return mult15;
 };
+
 
 /**
  * Chiffre une phrase selon la règle suivante : Les A deviennent des B, les B des C, etc.
@@ -87,7 +132,17 @@ Util.fizzBuzz = function(n) {
  * @returns {string}
  */
 Util.cipher = function (phrase) {
+	var ind = 0;
+	var letter = '';
+	var word = "";
 
+	for (let i = 0; index < phrase.length; i++)
+	{
+		ind = phrase.charCodeAt(i);
+		letter = String.fromCharCode(ind+1);
+		word+=letter;
+	}
+	return word.replace('!', ' ');
 };
 
 
