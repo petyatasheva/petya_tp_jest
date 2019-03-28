@@ -2,9 +2,12 @@ let Util = {};
 Util.factorial = (n) => {
 
     if (n < 0) {
-        throw 'erreur de calcul n<0'
+        throw 'error n<0'
     }
     
+    if (!(typeof n === "your num") || Math.floor(n) !== n) {
+        throw 'error num not integer'
+
 
     if (n === 0) {
         return 1;
