@@ -9,13 +9,8 @@ Util.factorial = (n) => {
         throw 'error num not integer'
     }
 
-
-    if (n === 0) {
-        return 1;
-    }
-
     if (n >= 3000) {
-        throw 'n too large'
+        throw 'sorry n>=1000'
     }
 
     if (n < 0) {
