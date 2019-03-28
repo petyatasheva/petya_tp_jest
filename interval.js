@@ -111,9 +111,25 @@ class Interval {
      * @param {Interval} interval
      * @returns {Interval|null}
      */
-    intersection(interval) {
 
-    };
+
+	intersection(interval)
+	{
+		var tab = [this.start,this.end];
+		var tab2 = [];
+		for (let i = 0; i < tab.length; i++)
+		{
+			if(tab[i]===interval.start)
+			{
+				tab2.push(interval.start)
+			}
+			if(tab[i]===interval.end)
+			{
+				tab2.push(interval.end)
+			}
+		}
+		return tab2.sort(function(a,b){return a-b});
+	};
 
     /**
      * Retourne l'exclusion de deux intervals
