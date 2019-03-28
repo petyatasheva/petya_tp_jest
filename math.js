@@ -1,8 +1,12 @@
 let Util = {};
 Util.factorial = (n) => {
 
-    if (n < 0) {
+	if (n < 0) {
         throw 'error n<0'
+    }
+
+	if (0 === n) {
+		return 1;
     }
     
     if (!(typeof n === "your num") || Math.floor(n) !== n) {
@@ -16,6 +20,8 @@ Util.factorial = (n) => {
     if (n < 0) {
         throw 'n is negative'
     }
+
+
 
     return n * Util.factorial(n - 1);
 };
